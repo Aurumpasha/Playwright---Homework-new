@@ -21,7 +21,9 @@ test('Item create', async ({ page }) => {
   await itemToRightClick.click();
   await itemToRightClick.click({ button: 'right' });
   await page.locator('.tree-item-title').filter({ hasText: 'For AUTO' }).click({ button: 'right' });
+  await page.waitForTimeout(100);
   await page.keyboard.press('N');
+  await page.waitForTimeout(1000);
   await page.getByRole('textbox', { name: 'Search' }).click();
   await page.getByRole('textbox', { name: 'Search' }).fill('general');
   await page
@@ -50,7 +52,16 @@ test('Item create', async ({ page }) => {
     .first();
   await statusSelect.click();
   await statusSelect.click();
-  await statusSelect.filter({ hasText: 'Online' }).click;
+  await page.waitForTimeout(100);
+  //   const OnlineStatus = page.locator('.item-label').filter({ hasText: 'Online' });
+  const OnlineStatus = page
+    .locator('iframe[name="itemscope"]')
+    .contentFrame()
+    .getByRole('option', { name: 'Online' })
+    .locator('span')
+    .nth(1);
+  await OnlineStatus.click();
+  //   await OnlineStatus.filter({ hasText: 'Online' }).click;
   //   await statusSelect.selectOption({ label: 'Online' });
   //   const statusSelect = page.locator('select[name="temp_status"]');
   //   await statusSelect.selectOption({ label: 'Offline' });
