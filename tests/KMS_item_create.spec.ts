@@ -39,11 +39,22 @@ test('Item create', async ({ page }) => {
     .contentFrame()
     .locator('input[name="inplace_value"]')
     .fill('General AUTO PA1');
-  const statusSelect = page.locator('.iw-dropdown-value-container');
+  await page.keyboard.press('Enter');
+  //   const statusSelect = page.locator('#status-select');
+  const statusSelect = page
+    .locator('iframe[name="itemscope"]')
+    .contentFrame()
+    .locator('div')
+    .filter({ hasText: /^Offline$/ })
+    .first();
+  //   const statusSelect = page.locator('.selection-container single-selection');
+  //   const statusSelect = page.locator('.iw-dropdown-value-container');
+  await statusSelect.click();
+  await statusSelect.filter({ hasText: 'Online' }).click;
+  //   await statusSelect.selectOption({ label: 'Online' });
   //   const statusSelect = page.locator('select[name="temp_status"]');
-  await statusSelect.selectOption({ label: 'Online' });
-  const saveButton = page.locator('button.kms-editor-save-btn');
-  await saveButton.click();
+  //   await statusSelect.selectOption({ label: 'Offline' });
+  await page.locator('#kms-action-bar-button-Save').filter({ visible: true }).dblclick();
 });
 
 //   await page.getByRole('button', { name: 'Save', exact: true }).click();
