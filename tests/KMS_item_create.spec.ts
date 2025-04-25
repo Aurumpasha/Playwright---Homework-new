@@ -16,10 +16,12 @@ test('Item create', async ({ page }) => {
     .filter({ hasText: 'Pavel`s items' })
     .getByLabel('Expand Folder')
     .click();
-  await page.locator('span').filter({ hasText: 'For AUTO' }).getByRole('img').click({
-    button: 'right',
-  });
-  await page.getByLabel('New Item').click();
+
+  const itemToRightClick = page.locator('.tree-item-title').filter({ hasText: 'For AUTO' });
+  await itemToRightClick.click();
+  await itemToRightClick.click({ button: 'right' });
+  await page.locator('.tree-item-title').filter({ hasText: 'For AUTO' }).click({ button: 'right' });
+  await page.keyboard.press('N');
   await page.getByRole('textbox', { name: 'Search' }).click();
   await page.getByRole('textbox', { name: 'Search' }).fill('general');
   await page
@@ -40,15 +42,13 @@ test('Item create', async ({ page }) => {
     .locator('input[name="inplace_value"]')
     .fill('General AUTO PA1');
   await page.keyboard.press('Enter');
-  //   const statusSelect = page.locator('#status-select');
   const statusSelect = page
     .locator('iframe[name="itemscope"]')
     .contentFrame()
     .locator('div')
     .filter({ hasText: /^Offline$/ })
     .first();
-  //   const statusSelect = page.locator('.selection-container single-selection');
-  //   const statusSelect = page.locator('.iw-dropdown-value-container');
+  await statusSelect.click();
   await statusSelect.click();
   await statusSelect.filter({ hasText: 'Online' }).click;
   //   await statusSelect.selectOption({ label: 'Online' });
