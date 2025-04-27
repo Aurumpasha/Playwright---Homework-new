@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
-import { CREDENTIALS_CM } from '../credentials';
-import { MAIN_ENVIRONMENT } from '../environment_KMS';
+import { CREDENTIALS_CM } from '../config/credentials';
+import { MAIN_ENVIRONMENT } from '../config/environment_KMS';
 
 test('KMS login as Content manager', async ({ page }) => {
   const LoginButton = '#kms-login-to-layout-button';
