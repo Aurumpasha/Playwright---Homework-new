@@ -1,4 +1,5 @@
 import { test, expect } from '@playwright/test';
+import { CREDENTIALS_CSR } from '../credentials.ts';
 
 test('KMS login as CSR', async ({ page }) => {
   const LoginButton = '#kms-login-to-layout-button';
