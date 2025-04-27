@@ -1,11 +1,13 @@
 import { test, expect } from '@playwright/test';
+import { CREDENTIALS_CM } from '../config/credentials';
+import { MAIN_ENVIRONMENT } from '../config/environment_KMS';
 
 test('Item create', async ({ page }) => {
-  await page.goto('https://kmsqacm.lighthouse-cloud.com/kms/lh/login');
+  await page.goto(MAIN_ENVIRONMENT.environment);
   await page.getByText('Username', { exact: true }).click();
-  await page.getByRole('textbox', { name: 'Username*' }).fill('cm');
+  await page.getByRole('textbox', { name: 'Username*' }).fill(CREDENTIALS_CM.username);
   await page.getByText('Password', { exact: true }).click();
-  await page.getByRole('textbox', { name: 'Password*' }).fill('cm');
+  await page.getByRole('textbox', { name: 'Password*' }).fill(CREDENTIALS_CM.password);
   await page.getByRole('button', { name: 'Login' }).click();
   await page.getByTitle('Content Manager').click();
   await page.getByRole('listbox').getByRole('option', { name: 'Content Manager' }).click();
