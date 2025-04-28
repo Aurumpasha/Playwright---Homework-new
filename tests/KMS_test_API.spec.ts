@@ -28,7 +28,7 @@ test.describe('API Tests', () => {
     expect(sessionResponseBody.data).toHaveProperty('userId');
     expect(sessionResponseBody.data).toHaveProperty('userFullName');
     expect(sessionResponseBody.data).toHaveProperty('username');
-    // User data availability
+    // User information
     expect(sessionResponseBody.data.userId).toBe(6);
     expect(sessionResponseBody.data.userFullName).toBe('Content Manager');
     expect(sessionResponseBody.data.username).toBe('cm');
