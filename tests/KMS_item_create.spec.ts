@@ -13,9 +13,11 @@ test('Item create', async ({ page }) => {
   await page.getByTitle('Content Manager').click();
   await page.getByRole('listbox').getByRole('option', { name: 'Content Manager' }).click();
   await page.locator('#kms-login-to-layout-button').click();
+
   //Check susscessfull login
   await expect(page.getByRole('link', { name: 'Go to the home page' })).toBeVisible();
   await expect(page.getByRole('button', { name: 'Refresh Results' })).toBeVisible();
+
   //Item create in needed folder
   await page.locator('span').filter({ hasText: 'Charoite' }).getByLabel('Expand Folder').click();
   await page
@@ -50,6 +52,7 @@ test('Item create', async ({ page }) => {
     .locator('input[name="inplace_value"]')
     .fill('General AUTO PA2');
   await page.keyboard.press('Enter');
+
   //Change item status to Online and save the item
   const statusSelect = page
     .locator('iframe[name="itemscope"]')
@@ -72,16 +75,29 @@ test('Item create', async ({ page }) => {
     page.locator('iframe[name="itemscope"]').contentFrame().locator('#item-update-status-section'),
   ).toContainText('Online');
 
+  //Check item status color
+  const buttonElementOnline = await page
+    .locator('.cmTreeOnlineStatus button')
+    .filter({ hasText: 'General AUTO PA2' });
+  const color = await buttonElementOnline.evaluate((element) => {
+    return window.getComputedStyle(element).color;
+  });
+  const rgbToHexOnline = (rgb: string) => {
+    const rgbValues = rgb.match(/\d+/g);
+    if (!rgbValues) return '';
+    const hex = rgbValues
+      .map((value) => {
+        const hexValue = parseInt(value).toString(16);
+        return hexValue.length === 1 ? '0' + hexValue : hexValue;
+      })
+      .join('');
+    return `#${hex}`;
+  };
+  const hexColorOnline = rgbToHexOnline(color);
+  expect(hexColorOnline).toBe('#0a0c0d');
+
   //item create in needed folder and save it in Offline status
   await page.getByRole('button', { name: 'Cancel' }).click();
-  // const itemToRightClick2 = page.locator('.tree-item-title').filter({ hasText: 'Charoite' });
-  // await itemToRightClick1.click();
-  // // await page.locator('span').filter({ hasText: 'Charoite' }).getByLabel('Expand Folder').click();
-  // await page
-  //   .locator('span')
-  //   .filter({ hasText: 'Pavel`s items' })
-  //   .getByLabel('Expand Folder')
-  //   .click();
   const itemToRightClick1 = page.locator('.tree-item-title').filter({ hasText: 'For AUTO' });
   await itemToRightClick1.click();
   await itemToRightClick1.click({ button: 'right' });
@@ -115,9 +131,6 @@ test('Item create', async ({ page }) => {
   ).toContainText('Offline');
 });
 
-//   await expect(
-//     page.locator('iframe[name="itemscope"]').contentFrame().locator('#item-update-status-section'),
-//   ).toContainText('Online');
 //   await page.getByRole('button', { name: 'undefined' }).click();
 //   await page.getByRole('button', { name: 'Remove' }).click();
 //   await page.getByRole('button', { name: 'Yes' }).click();
