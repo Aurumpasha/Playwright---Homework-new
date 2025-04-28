@@ -13,9 +13,11 @@ test('Item create', async ({ page }) => {
   await page.getByTitle('Content Manager').click();
   await page.getByRole('listbox').getByRole('option', { name: 'Content Manager' }).click();
   await page.locator('#kms-login-to-layout-button').click();
+
   //Check susscessfull login
   await expect(page.getByRole('link', { name: 'Go to the home page' })).toBeVisible();
   await expect(page.getByRole('button', { name: 'Refresh Results' })).toBeVisible();
+
   //Item create in needed folder
   await page.locator('span').filter({ hasText: 'Charoite' }).getByLabel('Expand Folder').click();
   await page
@@ -50,6 +52,7 @@ test('Item create', async ({ page }) => {
     .locator('input[name="inplace_value"]')
     .fill('General AUTO PA2');
   await page.keyboard.press('Enter');
+
   //Change item status to Online and save the item
   const statusSelect = page
     .locator('iframe[name="itemscope"]')
@@ -72,7 +75,28 @@ test('Item create', async ({ page }) => {
     page.locator('iframe[name="itemscope"]').contentFrame().locator('#item-update-status-section'),
   ).toContainText('Online');
 
-  //item create iawait page.goto('https://kmsqacm.lighthouse-cloud.com/kms/CM/INTERNAL/LAYOUT?item_id=4&homePage=%2FCM%2FGENERAL%2FUPDATE%3Fitem_id%3D103193%26isInfo%3Dyes%26include_itm_keywords%3DY%26item_max_version%3DY%26item_revision%3D2%26item_language%3Den&homePageEncoded=true');n needed folder and save it in Offline status
+  //Check color of the item in "Online" status
+  const buttonElementOnline = await page
+    .locator('.cmTreeOnlineStatus button')
+    .filter({ hasText: 'General AUTO PA2' });
+  const colorOnline = await buttonElementOnline.evaluate((element) => {
+    return window.getComputedStyle(element).color;
+  });
+  const rgbToHexOnline = (rgb: string) => {
+    const rgbValues = rgb.match(/\d+/g);
+    if (!rgbValues) return '';
+    const hex = rgbValues
+      .map((value) => {
+        const hexValue = parseInt(value).toString(16);
+        return hexValue.length === 1 ? '0' + hexValue : hexValue;
+      })
+      .join('');
+    return `#${hex}`;
+  };
+  const hexColorOnline = rgbToHexOnline(colorOnline);
+  expect(hexColorOnline).toBe('#0a0c0d');
+
+  //item create in needed folder and save it in Offline status
   await page.getByRole('button', { name: 'Cancel' }).click();
   const itemToRightClick1 = page.locator('.tree-item-title').filter({ hasText: 'For AUTO' });
   await itemToRightClick1.click();
@@ -101,15 +125,35 @@ test('Item create', async ({ page }) => {
     .locator('input[name="inplace_value"]')
     .fill('General AUTO PA3');
   await page.keyboard.press('Enter');
+  await page.waitForTimeout(300);
   await page.locator('#kms-action-bar-button-Save').filter({ visible: true }).dblclick();
   await expect(
     page.locator('iframe[name="itemscope"]').contentFrame().locator('#item-update-status-section'),
   ).toContainText('Offline');
+  await page.getByRole('button', { name: 'Cancel' }).click();
+
+  //Check color of the item in "Offline" status
+  const buttonElementOffline = await page
+    .locator('.cmTreeOfflineStatus button')
+    .filter({ hasText: 'General AUTO PA3' });
+  const colorOffline = await buttonElementOffline.evaluate((element) => {
+    return window.getComputedStyle(element).color;
+  });
+  const rgbToHexOffline = (rgb: string) => {
+    const rgbValues = rgb.match(/\d+/g);
+    if (!rgbValues) return '';
+    const hex = rgbValues
+      .map((value) => {
+        const hexValue = parseInt(value).toString(16);
+        return hexValue.length === 1 ? '0' + hexValue : hexValue;
+      })
+      .join('');
+    return `#${hex}`;
+  };
+  const hexColorOffline = rgbToHexOffline(colorOffline);
+  expect(hexColorOffline).toBe('#ff0000');
 });
 
-//   await expect(
-//     page.locator('iframe[name="itemscope"]').contentFrame().locator('#item-update-status-section'),
-//   ).toContainText('Online');
 //   await page.getByRole('button', { name: 'undefined' }).click();
 //   await page.getByRole('button', { name: 'Remove' }).click();
 //   await page.getByRole('button', { name: 'Yes' }).click();
