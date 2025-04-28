@@ -1,0 +1,4 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"","903","Login and get session info","Google Chrome","Mon Apr 28 16:30:54 IRKT 2025","passed","Mon Apr 28 16:30:55 IRKT 2025","API Tests","KMS_test_API.spec.ts","",""
+"","12990","KMS login as Content manager","Google Chrome","Mon Apr 28 16:30:11 IRKT 2025","passed","Mon Apr 28 16:30:24 IRKT 2025","","KMS_login_CM.spec.ts","",""
+"","11366","KMS login as CSR","Google Chrome","Mon Apr 28 16:31:00 IRKT 2025","passed","Mon Apr 28 16:31:11 IRKT 2025","","KMS_login_CSR.spec.ts","",""
