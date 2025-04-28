@@ -75,11 +75,11 @@ test('Item create', async ({ page }) => {
     page.locator('iframe[name="itemscope"]').contentFrame().locator('#item-update-status-section'),
   ).toContainText('Online');
 
-  //Check item status color
+  //Check color of the item in "Online" status
   const buttonElementOnline = await page
     .locator('.cmTreeOnlineStatus button')
     .filter({ hasText: 'General AUTO PA2' });
-  const color = await buttonElementOnline.evaluate((element) => {
+  const colorOnline = await buttonElementOnline.evaluate((element) => {
     return window.getComputedStyle(element).color;
   });
   const rgbToHexOnline = (rgb: string) => {
@@ -93,7 +93,7 @@ test('Item create', async ({ page }) => {
       .join('');
     return `#${hex}`;
   };
-  const hexColorOnline = rgbToHexOnline(color);
+  const hexColorOnline = rgbToHexOnline(colorOnline);
   expect(hexColorOnline).toBe('#0a0c0d');
 
   //item create in needed folder and save it in Offline status
@@ -125,10 +125,33 @@ test('Item create', async ({ page }) => {
     .locator('input[name="inplace_value"]')
     .fill('General AUTO PA3');
   await page.keyboard.press('Enter');
+  await page.waitForTimeout(300);
   await page.locator('#kms-action-bar-button-Save').filter({ visible: true }).dblclick();
   await expect(
     page.locator('iframe[name="itemscope"]').contentFrame().locator('#item-update-status-section'),
   ).toContainText('Offline');
+  await page.getByRole('button', { name: 'Cancel' }).click();
+
+  //Check color of the item in "Offline" status
+  const buttonElementOffline = await page
+    .locator('.cmTreeOfflineStatus button')
+    .filter({ hasText: 'General AUTO PA3' });
+  const colorOffline = await buttonElementOffline.evaluate((element) => {
+    return window.getComputedStyle(element).color;
+  });
+  const rgbToHexOffline = (rgb: string) => {
+    const rgbValues = rgb.match(/\d+/g);
+    if (!rgbValues) return '';
+    const hex = rgbValues
+      .map((value) => {
+        const hexValue = parseInt(value).toString(16);
+        return hexValue.length === 1 ? '0' + hexValue : hexValue;
+      })
+      .join('');
+    return `#${hex}`;
+  };
+  const hexColorOffline = rgbToHexOffline(colorOffline);
+  expect(hexColorOffline).toBe('#ff0000');
 });
 
 //   await page.getByRole('button', { name: 'undefined' }).click();
