@@ -1,5 +1,5 @@
 import { test, expect, APIRequestContext } from '@playwright/test';
-import { CREDS_API_CM } from '../config/credentials_API';
+import { CREDS_API_CSR } from '../config/credentials_API';
 
 test.describe('API Tests', () => {
   let apiSearch: APIRequestContext;
@@ -10,7 +10,7 @@ test.describe('API Tests', () => {
   // API login
   test('Login and search', async () => {
     const login = await apiSearch.post(
-      `https://kmsqacm.lighthouse-cloud.com/kms/lh/api/login?username=${CREDS_API_CM.username}&password=${CREDS_API_CM.password}`,
+      `https://kmsqacm.lighthouse-cloud.com/kms/lh/api/login?username=${CREDS_API_CSR.username}&password=${CREDS_API_CSR.password}`,
     );
 
     expect(login.ok()).toBeTruthy();
