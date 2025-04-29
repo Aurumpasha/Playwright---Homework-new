@@ -7,7 +7,7 @@ test.describe('API Tests', () => {
     apiContext = request;
   });
   // API login
-  test('Login and get session info', async () => {
+  test('Login and get session info - LAS-20296', async () => {
     const loginResponse = await apiContext.post(
       'https://kmsqacm.lighthouse-cloud.com/kms/lh/api/login?username=cm&password=cm',
     );

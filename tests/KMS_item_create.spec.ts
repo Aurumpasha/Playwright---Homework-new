@@ -50,7 +50,7 @@ test('Item create', async ({ page }) => {
     .locator('iframe[name="itemscope"]')
     .contentFrame()
     .locator('input[name="inplace_value"]')
-    .fill('General AUTO PA2');
+    .fill('General_AUTO_PA2');
   await page.keyboard.press('Enter');
 
   //Change item status to Online and save the item
@@ -123,7 +123,7 @@ test('Item create', async ({ page }) => {
     .locator('iframe[name="itemscope"]')
     .contentFrame()
     .locator('input[name="inplace_value"]')
-    .fill('General AUTO PA3');
+    .fill('General_AUTO_PA3');
   await page.keyboard.press('Enter');
   await page.waitForTimeout(300);
   await page.locator('#kms-action-bar-button-Save').filter({ visible: true }).dblclick();
