@@ -1,4 +1,5 @@
 import { test, expect, APIRequestContext } from '@playwright/test';
+import { CREDS_API_CM } from '../config/credentials_API';
 
 test.describe('API Tests', () => {
   let apiContext: APIRequestContext;
@@ -9,7 +10,7 @@ test.describe('API Tests', () => {
   // API login
   test('Login and get session info - LAS-20296', async () => {
     const loginResponse = await apiContext.post(
-      'https://kmsqacm.lighthouse-cloud.com/kms/lh/api/login?username=cm&password=cm',
+      `https://kmsqacm.lighthouse-cloud.com/kms/lh/api/login?username=${CREDS_API_CM.username}&password=${CREDS_API_CM.password}`,
     );
     expect(loginResponse.ok()).toBeTruthy();
     const loginResponseBody = await loginResponse.json();
