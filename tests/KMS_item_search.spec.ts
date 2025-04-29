@@ -1,36 +1,50 @@
 import { test, expect, APIRequestContext } from '@playwright/test';
 
 test.describe('API Tests', () => {
-  let apiContext: APIRequestContext;
+  let apiSearch: APIRequestContext;
 
   test.beforeEach(async ({ request }) => {
-    apiContext = request;
+    apiSearch = request;
   });
   // API login
-  test('Login and get session info - LAS-20296', async () => {
-    const loginResponse = await apiContext.post(
-      'https://kmsqacm.lighthouse-cloud.com/kms/lh/api/login?username=cm&password=cm',
+  test('Login and search', async () => {
+    const login = await apiSearch.post(
+      'https://kmsqacm.lighthouse-cloud.com/kms/lh/api/login?username=csr&password=csr',
     );
-    expect(loginResponse.ok()).toBeTruthy();
-    const loginResponseBody = await loginResponse.json();
+    expect(login.ok()).toBeTruthy();
+    const loginResponseBody = await login.json();
     expect(loginResponseBody.status).toBe('SUCCESS');
 
-    // Get session information
-    const sessionResponse = await apiContext.get(
-      'https://kmsqacm.lighthouse-cloud.com/kms/lh/api/sessionInfo',
+    // Simple Search by keyword
+    const SearchResponse = await apiSearch.get(
+      'https://kmsqacm.lighthouse-cloud.com/kms/lh/search/simple?query=general_auto_pa',
     );
+    //need double request, because single request not working
+    const SearchResponse1 = await apiSearch.get(
+      'https://kmsqacm.lighthouse-cloud.com/kms/lh/search/simple?query=general_auto_pa',
+    );
+    expect(SearchResponse1.ok()).toBeTruthy();
+    const searchResponseBody = await SearchResponse1.json();
 
-    expect(sessionResponse.ok()).toBeTruthy();
-    const sessionResponseBody = await sessionResponse.json();
-    expect(sessionResponseBody.status).toBe('SUCCESS');
+    // Get correct array with data
+    expect(searchResponseBody).toHaveProperty('query');
+    expect(searchResponseBody).toHaveProperty('suggestedQueryAlternative');
 
-    // User data availability
-    expect(sessionResponseBody.data).toHaveProperty('userId');
-    expect(sessionResponseBody.data).toHaveProperty('userFullName');
-    expect(sessionResponseBody.data).toHaveProperty('username');
-    // User information
-    expect(sessionResponseBody.data.userId).toBe(6);
-    expect(sessionResponseBody.data.userFullName).toBe('Content Manager');
-    expect(sessionResponseBody.data.username).toBe('cm');
+    // Check - is there are the results array
+    expect(Array.isArray(searchResponseBody.results)).toBeTruthy();
+
+    // Check statuses of all search results
+    if (searchResponseBody.results.length > 0) {
+      searchResponseBody.results.forEach((result) => {
+        expect(result).toHaveProperty('id');
+        expect(result).toHaveProperty('title');
+        expect(result).toHaveProperty('status');
+
+        // Item status is not "Offline" - for each item
+        expect(result.status).not.toBe('Offline');
+      });
+    } else {
+      throw new Error('Results array is empty');
+    }
   });
 });
