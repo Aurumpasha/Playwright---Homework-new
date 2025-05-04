@@ -1,0 +1,591 @@
+# Test info
+
+- Name: Item create
+- Location: C:\autoTesting\Playwright - Homework new\tests\KMS_item_create.spec.ts:5:5
+
+# Error details
+
+```
+Error: locator.click: Test timeout of 50000ms exceeded.
+Call log:
+  - waiting for locator('iframe[name="itemscope"]').contentFrame().getByRole('option', { name: 'Online' }).locator('span').nth(1)
+    - locator resolved to <span data-v-43d179f3="" class="item-label">…</span>
+  - attempting click action
+    - waiting for element to be visible, enabled and stable
+    - element is visible, enabled and stable
+    - scrolling into view if needed
+    - done scrolling
+    - <div class="notification-message">…</div> from <div tabindex="-1" role="dialog" aria-labelledby="ui-id-3" aria-describedby="notification-dialog" class="ui-dialog ui-widget ui-widget-content ui-corner-all ui-front kms-ui-dialog kms-ui-dialog--notification ui-dialog-buttons ui-draggable notification-dialog-widget focus-within">…</div> subtree intercepts pointer events
+  - retrying click action
+    - waiting for element to be visible, enabled and stable
+    - element is visible, enabled and stable
+    - scrolling into view if needed
+    - done scrolling
+    - <div class="ui-widget-overlay ui-front"></div> intercepts pointer events
+  - retrying click action
+    - waiting 20ms
+    - waiting for element to be visible, enabled and stable
+    - element is visible, enabled and stable
+    - scrolling into view if needed
+    - done scrolling
+    - <div class="notification-message">…</div> from <div tabindex="-1" role="dialog" aria-labelledby="ui-id-3" aria-describedby="notification-dialog" class="ui-dialog ui-widget ui-widget-content ui-corner-all ui-front kms-ui-dialog kms-ui-dialog--notification ui-dialog-buttons ui-draggable notification-dialog-widget focus-within">…</div> subtree intercepts pointer events
+  2 × retrying click action
+      - waiting 100ms
+      - waiting for element to be visible, enabled and stable
+      - element is visible, enabled and stable
+      - scrolling into view if needed
+      - done scrolling
+      - <div class="ui-widget-overlay ui-front"></div> intercepts pointer events
+  14 × retrying click action
+       - waiting 500ms
+       - waiting for element to be visible, enabled and stable
+       - element is visible, enabled and stable
+       - scrolling into view if needed
+       - done scrolling
+       - <div class="ui-widget-overlay ui-front"></div> intercepts pointer events
+     - retrying click action
+       - waiting 500ms
+       - waiting for element to be visible, enabled and stable
+       - element is visible, enabled and stable
+       - scrolling into view if needed
+       - done scrolling
+       - <div class="notification-message">…</div> from <div tabindex="-1" role="dialog" aria-labelledby="ui-id-3" aria-describedby="notification-dialog" class="ui-dialog ui-widget ui-widget-content ui-corner-all ui-front kms-ui-dialog kms-ui-dialog--notification ui-dialog-buttons ui-draggable notification-dialog-widget focus-within">…</div> subtree intercepts pointer events
+     - retrying click action
+       - waiting 500ms
+       - waiting for element to be visible, enabled and stable
+       - element is visible, enabled and stable
+       - scrolling into view if needed
+       - done scrolling
+       - <div class="ui-widget-overlay ui-front"></div> intercepts pointer events
+     - retrying click action
+       - waiting 500ms
+       - waiting for element to be visible, enabled and stable
+       - element is visible, enabled and stable
+       - scrolling into view if needed
+       - done scrolling
+       - <div class="ui-widget-overlay ui-front"></div> intercepts pointer events
+  - retrying click action
+    - waiting 500ms
+
+    at C:\autoTesting\Playwright - Homework new\tests\KMS_item_create.spec.ts:72:22
+```
+
+# Page snapshot
+
+```yaml
+- status: Content loaded
+- banner:
+  - link "Skip To Main Content":
+    - /url: "#"
+  - link "Go to the home page":
+    - img: 
+  - list "Main menu":
+    - listitem:
+      - link "Breaking News":
+        - /url: "#"
+    - listitem:
+      - link "Reports":
+        - /url: "#"
+    - listitem:
+      - link "Accessories":
+        - /url: "#"
+    - listitem:
+      - link "9+ Feedback":
+        - /url: "#"
+    - listitem:
+      - link "Exams & Surveys":
+        - /url: "#"
+    - listitem:
+      - link "Forum":
+        - /url: "#"
+    - listitem:
+      - link "Layouts":
+        - /url: "#"
+    - listitem:
+      - link:
+        - /url: "#"
+        - img: 
+  - list "Tools Menu":
+    - listitem:
+      - button "Toggle Accessibility Toolbar":
+        - img: 
+    - listitem:
+      - button "Recent Items":
+        - img: 
+    - listitem:
+      - button "Favorites":
+        - img: 
+    - listitem:
+      - button "Inbox Notifications":
+        - img: 
+    - listitem:
+      - button "Content Manager ":
+        - img: 
+        - text: Content Manager 
+- banner "Go to the home page"
+- search:
+  - img: 
+  - searchbox "Add search words"
+  - text: English
+  - img
+  - button "Search":
+    - img "Go": 
+- link "Company's Web Site":
+  - /url: http://www.kmslh.com
+- complementary:
+  - heading "Content World Menu" [level=4]
+  - heading "Content World Menu" [level=2]
+  - button "Refresh Results":
+    - img: 
+  - button "New Item":
+    - img: 
+  - button "Recent Items":
+    - img: 
+    - img: 
+  - button "Collapse All":
+    - img: 
+    - text: Collapse All
+  - button "Deleted Items":
+    - img: 
+    - text: Deleted Items
+  - list:
+    - listitem:
+      - button "Expand Folder": 
+      - img: 
+      - button "Folder 1 [201]"
+    - listitem:
+      - button "Expand Folder": 
+      - img: 
+      - button "ישיר [49]"
+    - listitem:
+      - button "Expand Folder": 
+      - img: 
+      - button "Sapphire [394]"
+    - listitem:
+      - button "Expand Folder": 
+      - img: 
+      - button "Ruby [144]"
+    - listitem:
+      - button "Collapse Folder" [expanded]: 
+      - img: 
+      - button "Charoite [34]" [expanded]
+      - list:
+        - listitem:
+          - button "Expand Folder": 
+          - img: 
+          - button "Slava english [26]"
+        - listitem:
+          - button "Collapse Folder" [expanded]: 
+          - img: 
+          - 'button "Pavel`s items [13]" [expanded]'
+          - list:
+            - listitem:
+              - img: 
+              - button "PN - 10072024-01"
+            - listitem:
+              - img: 
+              - button "test scenario111"
+            - listitem:
+              - img: 
+              - button "39557 General test"
+            - listitem:
+              - img: 
+              - button "48463 General video test"
+            - listitem:
+              - img: 
+              - button "Mobile Phone and Automobile"
+            - listitem:
+              - button "Expand Folder": 
+              - img: 
+              - button "41473 for Upgrade testing to 7.9 [4]"
+            - listitem:
+              - button "Expand Folder": 
+              - img: 
+              - button "45961 glossary in snippets [12]"
+            - listitem:
+              - button "Collapse Folder" [expanded]: 
+              - img: 
+              - button "For AUTO [2]" [expanded]
+              - list:
+                - listitem:
+                  - img: 
+                  - button "General_AUTO_PA2"
+                - listitem:
+                  - img: 
+                  - button "New Item"
+            - listitem:
+              - button "Expand Folder": 
+              - img: 
+              - button "Incidents [23]":
+                - text: Incidents [23]
+                - img: 
+            - listitem:
+              - button "Expand Folder": 
+              - img: 
+              - button "Regression 7.9 [22]"
+            - listitem:
+              - button "Expand Folder": 
+              - img: 
+              - button "Regression 7.91 [20]"
+            - listitem:
+              - button "Expand Folder": 
+              - img: 
+              - button "Story 49885 ExportToPDF Cron [5]"
+            - listitem:
+              - button "Expand Folder": 
+              - img: 
+              - button "Scenarios [11]"
+        - listitem:
+          - button "Expand Folder": 
+          - img: 
+          - button "Tania [22]"
+        - listitem:
+          - button "Expand Folder": 
+          - img: 
+          - button "Srdjan Testing folder [23]"
+        - listitem:
+          - img: 
+          - button "15052024 Scenario"
+        - listitem:
+          - img: 
+          - button "LAS-41251"
+        - listitem:
+          - img: 
+          - button "pn a test Alina' test"
+        - listitem:
+          - img: 
+          - button "פריט חדש"
+        - listitem:
+          - button "Expand Folder": 
+          - img: 
+          - button "TN test Permissions [9]":
+            - text: TN test Permissions [9]
+            - img: 
+        - listitem:
+          - img: 
+          - button "Snippet"
+        - listitem:
+          - img: 
+          - button "SnippetStep"
+        - listitem:
+          - button "Expand Folder": 
+          - img: 
+          - button "Boris [4]"
+        - listitem:
+          - img: 
+          - button "Copied test scenario links"
+        - listitem:
+          - img: 
+          - button "IK"
+        - listitem:
+          - img: 
+          - button "LAS-46319-2"
+        - listitem:
+          - img: 
+          - button "Brief 01"
+        - listitem:
+          - img: 
+          - button "Headings"
+        - listitem:
+          - img: 
+          - button "Test_item_permissions_move_shortcut"
+        - listitem:
+          - img: 
+          - button "abracadabra"
+        - listitem:
+          - img: 
+          - button "Content Manager – Part 22 Agenda"
+        - listitem:
+          - img: 
+          - button "Content Manager – Part 22 Agenda"
+        - listitem:
+          - img: 
+          - button "test popup incident"
+        - listitem:
+          - img: 
+          - button "another test popup"
+        - listitem:
+          - button "Expand Folder": 
+          - img: 
+          - button "Bulat's items [1]"
+        - listitem:
+          - button "Expand Folder": 
+          - img: 
+          - button "Roni [2]"
+        - listitem:
+          - img: 
+          - button "Test new version with snippets"
+        - listitem:
+          - img: 
+          - button "New Item"
+        - listitem:
+          - img: 
+          - button "horizontal rule item"
+        - listitem:
+          - img: 
+          - button "IK All_elements_2"
+        - listitem:
+          - img: 
+          - button "Snippet to delete"
+        - listitem:
+          - img: 
+          - button "April General"
+        - listitem:
+          - img: 
+          - button "Item with id 101787"
+        - listitem:
+          - img: 
+          - button "scenario hebrew"
+        - listitem:
+          - img: 
+          - button "LAS-53338"
+    - listitem:
+      - button "Expand Folder": 
+      - img: 
+      - button "Folder 5 [76]":
+        - text: Folder 5 [76]
+        - img: 
+    - listitem:
+      - button "Expand Folder": 
+      - img: 
+      - button "Amber [32]"
+    - listitem:
+      - button "Expand Folder": 
+      - img: 
+      - button "Aventurine [79]"
+    - listitem:
+      - button "Expand Folder": 
+      - img: 
+      - button "איש [15]"
+    - listitem:
+      - button "Expand Folder": 
+      - img: 
+      - button "Folder 9 [39]"
+    - listitem:
+      - button "Expand Folder": 
+      - img: 
+      - button "Folder 10 [24]"
+    - listitem:
+      - button "Expand Folder": 
+      - img: 
+      - button "Support testing [162]"
+    - listitem:
+      - button "Expand Folder": 
+      - img: 
+      - button "Onyx [40]"
+    - listitem:
+      - button "Expand Folder": 
+      - img: 
+      - button "Folder 15 [89]"
+- main:
+  - iframe
+- button "Accessibility Declaration":  Accessibility Declaration
+- group:
+  - listitem "Search in Text":
+    - button "Search in Text":
+      - img: 
+  - listitem "Copy Link":
+    - button "Copy Link":
+      - img: 
+  - listitem "Export to PDF":
+    - button "Export to PDF":
+      - img: 
+  - listitem:
+    - button "Item Info":
+      - img "Item Info": 
+  - listitem "Save":
+    - button "Save":
+      - img: 
+  - listitem "Save and View":
+    - button "Save and View":
+      - img: 
+  - listitem "Save and Relocate":
+    - button "Save and Relocate":
+      - img: 
+  - listitem "Preview":
+    - button "Preview":
+      - img: 
+  - listitem "Save and Lock":
+    - button "Save and Lock":
+      - img: 
+  - listitem:
+    - button "undefined":
+      - img: 
+- contentinfo: © 2025 KMS Lighthouse Ltd
+- contentinfo:
+  - img: 
+- status
+- dialog "Message ":
+  - text: Message
+  - img: 
+  - text: "Lighthouse found items with the same name: General_AUTO_PA2 (103843). Do you want to save the item with same name?"
+  - button "Save"
+  - button "Change title"
+  - text: © 2025 KMS Lighthouse Ltd
+```
+
+# Test source
+
+```ts
+   1 | import { test, expect } from '@playwright/test';
+   2 | import { CREDENTIALS_CM } from '../config/credentials';
+   3 | import { MAIN_ENVIRONMENT } from '../config/environment_KMS';
+   4 |
+   5 | test('Item create', async ({ page }) => {
+   6 |   //Login
+   7 |   await page.goto(MAIN_ENVIRONMENT.environment);
+   8 |   await page.getByText('Username', { exact: true }).click();
+   9 |   await page.getByRole('textbox', { name: 'Username*' }).fill(CREDENTIALS_CM.username);
+   10 |   await page.getByText('Password', { exact: true }).click();
+   11 |   await page.getByRole('textbox', { name: 'Password*' }).fill(CREDENTIALS_CM.password);
+   12 |   await page.getByRole('button', { name: 'Login' }).click();
+   13 |   await page.getByTitle('Content Manager').click();
+   14 |   await page.getByRole('listbox').getByRole('option', { name: 'Content Manager' }).click();
+   15 |   await page.locator('#kms-login-to-layout-button').click();
+   16 |
+   17 |   //Check susscessfull login
+   18 |   await expect(page.getByRole('link', { name: 'Go to the home page' })).toBeVisible();
+   19 |   await expect(page.getByRole('button', { name: 'Refresh Results' })).toBeVisible();
+   20 |
+   21 |   //Item create in needed folder
+   22 |   await page.locator('span').filter({ hasText: 'Charoite' }).getByLabel('Expand Folder').click();
+   23 |   await page
+   24 |     .locator('span')
+   25 |     .filter({ hasText: 'Pavel`s items' })
+   26 |     .getByLabel('Expand Folder')
+   27 |     .click();
+   28 |   const itemToRightClick = page.locator('.tree-item-title').filter({ hasText: 'For AUTO' });
+   29 |   await itemToRightClick.click();
+   30 |   await itemToRightClick.click({ button: 'right' });
+   31 |   await page.locator('.tree-item-title').filter({ hasText: 'For AUTO' }).click({ button: 'right' });
+   32 |   await page.waitForTimeout(300);
+   33 |   await page.keyboard.press('N');
+   34 |   await page.waitForTimeout(1000);
+   35 |   await page.getByRole('textbox', { name: 'Search' }).click();
+   36 |   await page.getByRole('textbox', { name: 'Search' }).fill('general');
+   37 |   await page
+   38 |     .getByRole('paragraph')
+   39 |     .filter({ hasText: /^General$/ })
+   40 |     .getByRole('img')
+   41 |     .click();
+   42 |   await page.getByRole('button', { name: 'Next' }).click();
+   43 |   await page.getByRole('button', { name: 'Skip' }).click();
+   44 |   await page
+   45 |     .locator('iframe[name="itemscope"]')
+   46 |     .contentFrame()
+   47 |     .getByRole('heading', { name: 'New Item' })
+   48 |     .click();
+   49 |   await page
+   50 |     .locator('iframe[name="itemscope"]')
+   51 |     .contentFrame()
+   52 |     .locator('input[name="inplace_value"]')
+   53 |     .fill('General_AUTO_PA2');
+   54 |   await page.keyboard.press('Enter');
+   55 |
+   56 |   //Change item status to Online and save the item
+   57 |   const statusSelect = page
+   58 |     .locator('iframe[name="itemscope"]')
+   59 |     .contentFrame()
+   60 |     .locator('div')
+   61 |     .filter({ hasText: /^Offline$/ })
+   62 |     .first();
+   63 |   await statusSelect.click();
+   64 |   await statusSelect.click();
+   65 |   await page.waitForTimeout(200);
+   66 |   const OnlineStatus = page
+   67 |     .locator('iframe[name="itemscope"]')
+   68 |     .contentFrame()
+   69 |     .getByRole('option', { name: 'Online' })
+   70 |     .locator('span')
+   71 |     .nth(1);
+>  72 |   await OnlineStatus.click();
+      |                      ^ Error: locator.click: Test timeout of 50000ms exceeded.
+   73 |   await page.locator('#kms-action-bar-button-Save').filter({ visible: true }).dblclick();
+   74 |   await expect(
+   75 |     page.locator('iframe[name="itemscope"]').contentFrame().locator('#item-update-status-section'),
+   76 |   ).toContainText('Online');
+   77 |
+   78 |   //Check color of the item in "Online" status
+   79 |   const buttonElementOnline = await page
+   80 |     .locator('.cmTreeOnlineStatus button')
+   81 |     .filter({ hasText: 'General_AUTO_PA2' });
+   82 |   const colorOnline = await buttonElementOnline.evaluate((element) => {
+   83 |     return window.getComputedStyle(element).color;
+   84 |   });
+   85 |   const rgbToHexOnline = (rgb: string) => {
+   86 |     const rgbValues = rgb.match(/\d+/g);
+   87 |     if (!rgbValues) return '';
+   88 |     const hex = rgbValues
+   89 |       .map((value) => {
+   90 |         const hexValue = parseInt(value).toString(16);
+   91 |         return hexValue.length === 1 ? '0' + hexValue : hexValue;
+   92 |       })
+   93 |       .join('');
+   94 |     return `#${hex}`;
+   95 |   };
+   96 |   const hexColorOnline = rgbToHexOnline(colorOnline);
+   97 |   expect(hexColorOnline).toBe('#0a0c0d');
+   98 |
+   99 |   //item create in needed folder and save it in Offline status
+  100 |   await page.getByRole('button', { name: 'Cancel' }).click();
+  101 |   const itemToRightClick1 = page.locator('.tree-item-title').filter({ hasText: 'For AUTO' });
+  102 |   await itemToRightClick1.click();
+  103 |   await itemToRightClick1.click({ button: 'right' });
+  104 |   await page.locator('.tree-item-title').filter({ hasText: 'For AUTO' }).click({ button: 'right' });
+  105 |   await page.waitForTimeout(300);
+  106 |   await page.keyboard.press('N');
+  107 |   await page.waitForTimeout(1000);
+  108 |   await page.getByRole('textbox', { name: 'Search' }).click();
+  109 |   await page.getByRole('textbox', { name: 'Search' }).fill('general');
+  110 |   await page
+  111 |     .getByRole('paragraph')
+  112 |     .filter({ hasText: /^General$/ })
+  113 |     .getByRole('img')
+  114 |     .click();
+  115 |   await page.getByRole('button', { name: 'Next' }).click();
+  116 |   await page.getByRole('button', { name: 'Skip' }).click();
+  117 |   await page
+  118 |     .locator('iframe[name="itemscope"]')
+  119 |     .contentFrame()
+  120 |     .getByRole('heading', { name: 'New Item' })
+  121 |     .click();
+  122 |   await page
+  123 |     .locator('iframe[name="itemscope"]')
+  124 |     .contentFrame()
+  125 |     .locator('input[name="inplace_value"]')
+  126 |     .fill('General_AUTO_PA3');
+  127 |   await page.keyboard.press('Enter');
+  128 |   await page.waitForTimeout(300);
+  129 |   await page.locator('#kms-action-bar-button-Save').filter({ visible: true }).dblclick();
+  130 |   await expect(
+  131 |     page.locator('iframe[name="itemscope"]').contentFrame().locator('#item-update-status-section'),
+  132 |   ).toContainText('Offline');
+  133 |   await page.getByRole('button', { name: 'Cancel' }).click();
+  134 |
+  135 |   //Check color of the item in "Offline" status
+  136 |   const buttonElementOffline = await page
+  137 |     .locator('.cmTreeOfflineStatus button')
+  138 |     .filter({ hasText: 'General_AUTO_PA3' });
+  139 |   const colorOffline = await buttonElementOffline.evaluate((element) => {
+  140 |     return window.getComputedStyle(element).color;
+  141 |   });
+  142 |   const rgbToHexOffline = (rgb: string) => {
+  143 |     const rgbValues = rgb.match(/\d+/g);
+  144 |     if (!rgbValues) return '';
+  145 |     const hex = rgbValues
+  146 |       .map((value) => {
+  147 |         const hexValue = parseInt(value).toString(16);
+  148 |         return hexValue.length === 1 ? '0' + hexValue : hexValue;
+  149 |       })
+  150 |       .join('');
+  151 |     return `#${hex}`;
+  152 |   };
+  153 |   const hexColorOffline = rgbToHexOffline(colorOffline);
+  154 |   expect(hexColorOffline).toBe('#ff0000');
+  155 | });
+  156 |
+  157 | //   await page.getByRole('button', { name: 'undefined' }).click();
+  158 | //   await page.getByRole('button', { name: 'Remove' }).click();
+  159 | //   await page.getByRole('button', { name: 'Yes' }).click();
+  160 |
+```

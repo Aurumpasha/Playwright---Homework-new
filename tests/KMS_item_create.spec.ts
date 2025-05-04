@@ -1,22 +1,33 @@
 import { test, expect } from '@playwright/test';
 import { CREDENTIALS_CM } from '../config/credentials';
-import { MAIN_ENVIRONMENT } from '../config/environment_KMS';
+// import { MAIN_ENVIRONMENT } from '../config/environment_KMS';
+import { LoginPageCM } from '../system/LoginPage';
 
-test('Item create', async ({ page }) => {
-  //Login
-  await page.goto(MAIN_ENVIRONMENT.environment);
-  await page.getByText('Username', { exact: true }).click();
-  await page.getByRole('textbox', { name: 'Username*' }).fill(CREDENTIALS_CM.username);
-  await page.getByText('Password', { exact: true }).click();
-  await page.getByRole('textbox', { name: 'Password*' }).fill(CREDENTIALS_CM.password);
-  await page.getByRole('button', { name: 'Login' }).click();
-  await page.getByTitle('Content Manager').click();
-  await page.getByRole('listbox').getByRole('option', { name: 'Content Manager' }).click();
-  await page.locator('#kms-login-to-layout-button').click();
+// //Login
+// await page.goto(MAIN_ENVIRONMENT.environment);
+// await page.getByText('Username', { exact: true }).click();
+// await page.getByRole('textbox', { name: 'Username*' }).fill(CREDENTIALS_CM.username);
+// await page.getByText('Password', { exact: true }).click();
+// await page.getByRole('textbox', { name: 'Password*' }).fill(CREDENTIALS_CM.password);
+// await page.getByRole('button', { name: 'Login' }).click();
+// await page.getByTitle('Content Manager').click();
+// await page.getByRole('listbox').getByRole('option', { name: 'Content Manager' }).click();
+// await page.locator('#kms-login-to-layout-button').click();
 
-  //Check susscessfull login
-  await expect(page.getByRole('link', { name: 'Go to the home page' })).toBeVisible();
-  await expect(page.getByRole('button', { name: 'Refresh Results' })).toBeVisible();
+// //Check susscessfull login
+// await expect(page.getByRole('link', { name: 'Go to the home page' })).toBeVisible();
+// await expect(page.getByRole('button', { name: 'Refresh Results' })).toBeVisible();
+
+// Login and Check susscessfull login
+test('KMS login as Content manager and Item create', async ({ page }) => {
+  const loginPage = new LoginPageCM(page);
+  await loginPage.navigate();
+  await loginPage.enterUsername(CREDENTIALS_CM.username);
+  await loginPage.enterPassword(CREDENTIALS_CM.password);
+  await loginPage.clickLoginButton();
+  await loginPage.selectContentManager();
+  await loginPage.clickLoginToLayout();
+  await loginPage.verifyLoginSuccess();
 
   //Item create in needed folder
   await page.locator('span').filter({ hasText: 'Charoite' }).getByLabel('Expand Folder').click();
@@ -50,7 +61,7 @@ test('Item create', async ({ page }) => {
     .locator('iframe[name="itemscope"]')
     .contentFrame()
     .locator('input[name="inplace_value"]')
-    .fill('General_AUTO_PA2');
+    .fill('General AUTO PA2');
   await page.keyboard.press('Enter');
 
   //Change item status to Online and save the item
@@ -123,7 +134,7 @@ test('Item create', async ({ page }) => {
     .locator('iframe[name="itemscope"]')
     .contentFrame()
     .locator('input[name="inplace_value"]')
-    .fill('General_AUTO_PA3');
+    .fill('General AUTO PA3');
   await page.keyboard.press('Enter');
   await page.waitForTimeout(300);
   await page.locator('#kms-action-bar-button-Save').filter({ visible: true }).dblclick();

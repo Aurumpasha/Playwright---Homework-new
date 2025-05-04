@@ -19,11 +19,11 @@ test.describe('API Tests', () => {
 
     // Simple Search by keyword
     const SearchResponse = await apiSearch.get(
-      'https://kmsqacm.lighthouse-cloud.com/kms/lh/search/simple?query=general_auto_pa',
+      'https://kmsqacm.lighthouse-cloud.com/kms/lh/search/simple?query=general auto pa',
     );
     //need double request, because single request not working
     const SearchResponse1 = await apiSearch.get(
-      'https://kmsqacm.lighthouse-cloud.com/kms/lh/search/simple?query=general_auto_pa',
+      'https://kmsqacm.lighthouse-cloud.com/kms/lh/search/simple?query=general auto pa',
     );
     expect(SearchResponse1.ok()).toBeTruthy();
     const searchResponseBody = await SearchResponse1.json();

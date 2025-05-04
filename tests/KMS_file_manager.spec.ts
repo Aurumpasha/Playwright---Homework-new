@@ -18,4 +18,10 @@ test('Login', async ({ page }) => {
   //Check susscessfull login
   await expect(page.getByRole('link', { name: 'Go to the home page' })).toBeVisible();
   await expect(page.getByRole('button', { name: 'Refresh Results' })).toBeVisible();
+
+  const filePath = path.join(__dirname, '/images/cat4.jpg');
+  const inputFile = page.locator('input[type="file"]'); // Замените на ваш селектор
+  await inputFile.setInputFiles(filePath);
+
+  //manual upload image to item
 });
