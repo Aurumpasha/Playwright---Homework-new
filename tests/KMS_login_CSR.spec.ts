@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 import { CREDENTIALS_CSR } from '../config/credentials';
 // import { MAIN_ENVIRONMENT } from '../config/environment_KMS';
-import { LoginPageCSR } from '../system/LoginPage';
+import { LoginPageCSR } from '../system/LoginPage_KMSQA';
 
 // test('KMS login as CSR', async ({ page }) => {
 //   const LoginButton = '#kms-login-to-layout-button';

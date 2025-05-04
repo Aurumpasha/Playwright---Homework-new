@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 import { CREDENTIALS_CM } from '../config/credentials';
 // import { MAIN_ENVIRONMENT } from '../config/environment_KMS';
-import { LoginPageCM } from '../system/LoginPage';
+import { LoginPageCM } from '../system/LoginPage_KMSQA';
 
 // //Login
 // await page.goto(MAIN_ENVIRONMENT.environment);
