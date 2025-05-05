@@ -52,6 +52,7 @@ test('KMS login as Content manager and Item create', async ({ page }) => {
     .click();
   await page.getByRole('button', { name: 'Next' }).click();
   await page.getByRole('button', { name: 'Skip' }).click();
+  await page.waitForTimeout(500);
   await page
     .locator('iframe[name="itemscope"]')
     .contentFrame()

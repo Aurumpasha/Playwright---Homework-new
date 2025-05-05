@@ -41,7 +41,7 @@ test('KMS upload the image to File manager', async ({ page }) => {
     .getByRole('img')
     .click();
   await page.getByRole('button', { name: 'Create item' }).click();
-  await page.waitForTimeout(300);
+  await page.waitForTimeout(3000);
   await page
     .locator('iframe[name="itemscope"]')
     .contentFrame()
@@ -58,6 +58,7 @@ test('KMS upload the image to File manager', async ({ page }) => {
   await expect(
     page.locator('iframe[name="itemscope"]').contentFrame().locator('#item-update-status-section'),
   ).toContainText('Offline');
+  await page.waitForTimeout(300);
   await page.getByRole('button', { name: 'Cancel' }).click();
 
   // Go to "General" tab and add a picture to "File (external)" field
