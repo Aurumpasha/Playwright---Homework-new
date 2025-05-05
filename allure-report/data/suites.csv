@@ -1,0 +1,2 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"","827","Login and get session info - LAS-20296","Google Chrome","Mon May 05 11:53:05 IRKT 2025","passed","Mon May 05 11:53:06 IRKT 2025","API Tests","KMS_test_API.spec.ts","",""

@@ -1,1 +1,1 @@
-{"uid":"b1a8273437954620fa374b796ffaacdd","name":"behaviors","children":[]}
+{"uid":"b1a8273437954620fa374b796ffaacdd","name":"behaviors","children":[{"name":"Login and get session info - LAS-20296","uid":"4caffd1e4d5248da","parentUid":"b1a8273437954620fa374b796ffaacdd","status":"passed","time":{"start":1746417185624,"stop":1746417186451,"duration":827},"flaky":false,"newFailed":false,"newPassed":false,"newBroken":false,"retriesCount":0,"retriesStatusChange":false,"parameters":["Google Chrome"],"tags":[]}]}
