@@ -18,7 +18,7 @@ import { LoginPageCSR } from '../system/LoginPage_KMSQA';
 //   await expect(page.getByRole('button', { name: 'Content World Menu' })).toBeVisible();
 // });
 
-test('KMS login as Content manager and Item create', async ({ page }) => {
+test('KMS login as CSR', async ({ page }) => {
   const loginPage = new LoginPageCSR(page);
   await loginPage.navigate();
   await loginPage.enterUsername(CREDENTIALS_CSR.username);

@@ -1,1 +1,0 @@
-{"pageSnapshot":"- img \"KMS lighthouse\"\n- group \"Login\":\n  - heading \"Login\" [level=1]\n  - textbox \"Username\"\n  - img: \n  - text: Username\n  - textbox \"Password\"\n  - img: \n  - button \"\"\n  - text: Password\n  - button \"Login\""}

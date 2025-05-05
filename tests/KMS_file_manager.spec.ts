@@ -41,6 +41,7 @@ test('KMS upload the image to File manager', async ({ page }) => {
     .getByRole('img')
     .click();
   await page.getByRole('button', { name: 'Create item' }).click();
+  await page.waitForTimeout(300);
   await page
     .locator('iframe[name="itemscope"]')
     .contentFrame()
@@ -74,7 +75,9 @@ test('KMS upload the image to File manager', async ({ page }) => {
     .click();
   await page.getByRole('link', { name: 'cat4.jpg' }).click();
   await page.getByRole('button', { name: 'Select file' }).click();
+  await page.waitForTimeout(300);
   await page.locator('#kms-action-bar-button-Save').filter({ visible: true }).dblclick();
+  await page.waitForTimeout(300);
   await page.getByRole('button', { name: 'Cancel' }).click();
 
   // Check if image is uploaded

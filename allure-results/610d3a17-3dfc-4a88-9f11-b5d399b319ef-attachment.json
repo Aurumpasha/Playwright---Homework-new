@@ -1,1 +1,0 @@
-{"pageSnapshot":"- img \"KMS lighthouse\"\n- heading \"Choose a layout\" [level=1]\n- button \"Manager\"\n- combobox:\n  - option \"Manager\" [selected]\n  - option \"Administrator\"\n  - option \"Content Manager\"\n  - option \"CSR\"\n  - option \"Help Desk\"\n- img: \n- button \"Login\""}
