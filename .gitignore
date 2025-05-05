@@ -7,7 +7,7 @@ node_modules/
 /playwright/.cache/
 
 /config
-/images
+# /images
 /allure-report
 /allure-results
 
